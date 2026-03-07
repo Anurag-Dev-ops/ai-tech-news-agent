@@ -1,14 +1,17 @@
 import os
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, UTC
 from apscheduler.schedulers.blocking import BlockingScheduler
+from dotenv import load_dotenv
 
 from fetcher import fetch_news
 from llm_filter import filter_news
 from notifier import send_message
-from dotenv import load_dotenv
+
+# load environment variables
 load_dotenv()
+
 DEDUP_FILE = "seen.json"
 
 logging.basicConfig(level=logging.INFO)
@@ -28,7 +31,7 @@ def save_seen(seen):
 
 
 def run_once():
-    logger.info("Starting run at %s", datetime.utcnow())
+    logger.info("Starting run at %s", datetime.now(UTC))
 
     seen = load_seen()
 
