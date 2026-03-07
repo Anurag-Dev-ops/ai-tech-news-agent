@@ -4,3 +4,4 @@ feedparser
 google-generativeai
 feedparser
 requests
+apscheduler
