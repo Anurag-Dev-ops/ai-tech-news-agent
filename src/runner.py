@@ -1,16 +1,16 @@
+from dotenv import load_dotenv
+load_dotenv()
 import os
 import json
 import logging
 from datetime import datetime, UTC
 from apscheduler.schedulers.blocking import BlockingScheduler
-from dotenv import load_dotenv
 
 from src.fetcher import fetch_news
 from src.llm_filter import filter_news
 from src.notifier import send_message
 
 # load environment variables
-load_dotenv()
 
 DEDUP_FILE = "seen.json"
 
