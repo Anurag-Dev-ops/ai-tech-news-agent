@@ -20,7 +20,19 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
 import json
+from fetcher import fetch_news
+from llm_filter import filter_news
+from notifier import send_message
 
+
+def main():
+    articles = fetch_news()
+    filtered = filter_news(articles)
+    send_message(filtered)
+
+
+if __name__ == "__main__":
+    main()
 # --- CONFIG ------------------------------------------------------------
 RSS_FEEDS = [
     # add the feeds you trust
