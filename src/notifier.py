@@ -8,7 +8,7 @@ CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 def send_message(articles):
 
     if not BOT_TOKEN or not CHAT_ID:
-        print("Telegram config missing")
+        print("Telegram config missing:", BOT_TOKEN, CHAT_ID)
         return
 
     if not articles:
