@@ -24,7 +24,7 @@ jobs:
 
       - name: Run agent
         run: |
-          python src/main.py
+          python src/runner.py
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

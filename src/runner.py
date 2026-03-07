@@ -1,7 +1,12 @@
 from fetcher import fetch_news
 from llm_filter import filter_ai_news
 from notifier import send_notification
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+
+LLM_API_KEY = os.getenv("LLM_API_KEY")
 def run():
     news = fetch_news()
     filtered = filter_ai_news(news)
