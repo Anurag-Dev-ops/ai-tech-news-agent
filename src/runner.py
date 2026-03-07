@@ -7,7 +7,8 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from fetcher import fetch_news
 from llm_filter import filter_news
 from notifier import send_message
-
+from dotenv import load_dotenv
+load_dotenv()
 DEDUP_FILE = "seen.json"
 
 logging.basicConfig(level=logging.INFO)
