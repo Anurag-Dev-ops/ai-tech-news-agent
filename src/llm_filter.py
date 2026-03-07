@@ -1,21 +1,26 @@
 KEYWORDS = [
-    "AI",
+    "ai",
     "artificial intelligence",
     "robot",
     "robotics",
     "machine learning",
-    "OpenAI",
-    "Tesla",
-    "Nvidia"
+    "deep learning",
+    "llm",
+    "nvidia",
+    "openai",
+    "semiconductor",
 ]
 
+
 def filter_news(articles):
+
     filtered = []
 
     for article in articles:
-        title = article["title"].lower()
 
-        if any(keyword.lower() in title for keyword in KEYWORDS):
+        text = (article["title"] + article.get("summary", "")).lower()
+
+        if any(keyword in text for keyword in KEYWORDS):
             filtered.append(article)
 
     return filtered

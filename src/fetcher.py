@@ -1,16 +1,28 @@
 import feedparser
 
-RSS_URL = "https://news.google.com/rss/search?q=artificial+intelligence+robotics+technology"
+RSS_FEEDS = [
+    "https://techcrunch.com/feed/",
+    "https://www.theverge.com/rss/index.xml",
+    "https://news.ycombinator.com/rss",
+    "https://arxiv.org/rss/cs.RO",
+    "https://arxiv.org/rss/cs.AI",
+]
+
 
 def fetch_news():
-    feed = feedparser.parse(RSS_URL)
 
     articles = []
 
-    for entry in feed.entries[:10]:
-        articles.append({
-            "title": entry.title,
-            "link": entry.link
-        })
+    for feed_url in RSS_FEEDS:
+
+        feed = feedparser.parse(feed_url)
+
+        for entry in feed.entries[:20]:
+
+            articles.append({
+                "title": entry.get("title", ""),
+                "link": entry.get("link", ""),
+                "summary": entry.get("summary", "")
+            })
 
     return articles

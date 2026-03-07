@@ -1,7 +1,5 @@
-requests
-python-dotenv
-feedparser
-google-generativeai
 feedparser
 requests
 apscheduler
+beautifulsoup4
+python-dotenv
