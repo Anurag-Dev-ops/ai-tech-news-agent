@@ -5,9 +5,9 @@ from datetime import datetime, UTC
 from apscheduler.schedulers.blocking import BlockingScheduler
 from dotenv import load_dotenv
 
-from fetcher import fetch_news
-from llm_filter import filter_news
-from notifier import send_message
+from src.fetcher import fetch_news
+from src.llm_filter import filter_news
+from src.notifier import send_message
 
 # load environment variables
 load_dotenv()
