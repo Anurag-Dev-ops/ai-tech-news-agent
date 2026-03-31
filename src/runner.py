@@ -59,11 +59,11 @@ def run_once():
 def schedule():
     scheduler = BlockingScheduler()
 
-    scheduler.add_job(run_once, "interval", minutes=30)
+    #scheduler.add_job(run_once, "interval", minutes=30)
 
     logger.info("Scheduler started (every 30 minutes)")
     scheduler.start()
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     run_once()
